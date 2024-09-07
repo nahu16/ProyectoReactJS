@@ -17,20 +17,30 @@ import {
     Img,
 } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
-import CartWidget from '../CartWidget/CartWidget';
-import Logo from '../../assets/Logo.jpg'
+import {CartWidget} from '../CartWidget';
+import Logo from '../../assets/Logo.jpg';
+import { Link } from 'react-router-dom';
 
-const NavBar = ()=> {
+
+
+
+export const NavBar = ()=> {
     const { colorMode, toggleColorMode } = useColorMode()
+
+
     return (
         <>
         <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
             <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                 <Box display={"flex"} textAlign={"center"} fontSize={"30px"}>
                     <Img src={Logo} width={"70px"}  justifyContent={"space-between"} borderRadius={"10px"}/>
-                    Cultura Rockera
+                    <Link to="/">Cultura Rockera</Link>
                 </Box>
-    
+                <Menu>
+                    <MenuButton as={Link} cursor="pointer" style={{marginRight:1250}}>
+                        Bandas
+                    </MenuButton>
+                </Menu>
                 <Flex alignItems={'center'}>
                 <Stack direction={'row'} spacing={7}>
                     <CartWidget/>
@@ -77,6 +87,4 @@ const NavBar = ()=> {
     )
 
 };
-
-export default NavBar;
 
