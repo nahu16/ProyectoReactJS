@@ -40,7 +40,7 @@ export const ItemListContainer = ({ products }) => {
                 $450
               </Text>
             <ButtonGroup spacing="2">
-           {/*    <Button variant="solid" colorScheme="blue">
+            {/*    <Button variant="solid" colorScheme="blue">
                 Buy now
               </Button>
               <Button variant="ghost" colorScheme="blue">

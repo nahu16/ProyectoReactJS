@@ -20,6 +20,7 @@ import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import {CartWidget} from '../CartWidget';
 import Logo from '../../assets/Logo.jpg';
 import { Link } from 'react-router-dom';
+import { useCategory } from '../../hooks/useCategory';
 
 
 
@@ -27,7 +28,8 @@ import { Link } from 'react-router-dom';
 export const NavBar = ()=> {
     const { colorMode, toggleColorMode } = useColorMode()
 
-
+    const {categoria} = useCategory
+    console.log(categoria)
     return (
         <>
         <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
@@ -37,9 +39,13 @@ export const NavBar = ()=> {
                     <Link to="/">Cultura Rockera</Link>
                 </Box>
                 <Menu>
-                    <MenuButton as={Link} cursor="pointer" style={{marginRight:1250}}>
+                    <MenuButton as={Link} cursor="pointer" style={{marginRight:140}}>
                         Bandas
                     </MenuButton>
+                    <MenuList height={"300px"} overflowY={"scroll"}>
+                    <MenuItem key={categoria}>
+                    </MenuItem>
+                </MenuList>
                 </Menu>
                 <Flex alignItems={'center'}>
                 <Stack direction={'row'} spacing={7}>
