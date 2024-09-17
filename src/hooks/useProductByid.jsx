@@ -1,19 +1,13 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
+import { ProductsData } from '../servicios/product';
 
 export const useProductByid = (id) => {
-    const [products, setProduct] = React.useState({});
-
-    React.useEffect(()=>{
-        getProductById(id).then((response)=> {
-            set.products(response.data)
-        }).catch((error)=>{
-            console.error(error);
-        })
-        .finally(()=>{
-            setLoading(false);
-        })
-    },[])
-
-
-    return {products};
+    const [product,setProduct] = useState(null);
+    
+    useEffect(()=>{
+        const foundProduct = ProductsData.find(product=>product.id === id)
+        setProduct	(foundProduct)
+    },[id])
+    return {product};
+    
 }

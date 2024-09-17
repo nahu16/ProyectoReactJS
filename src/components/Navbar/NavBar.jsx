@@ -28,8 +28,8 @@ import { useCategory } from '../../hooks/useCategory';
 export const NavBar = ()=> {
     const { colorMode, toggleColorMode } = useColorMode()
 
-    const {categoria} = useCategory
-    console.log(categoria)
+    const {categorias} = useCategory();
+
     return (
         <>
         <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
@@ -43,8 +43,11 @@ export const NavBar = ()=> {
                         Bandas
                     </MenuButton>
                     <MenuList height={"300px"} overflowY={"scroll"}>
-                    <MenuItem key={categoria}>
-                    </MenuItem>
+                    {categorias.map((categorias)=>(
+                        <MenuItem key={categorias}>
+                            <Link to={`/Category/${categorias}`}>{categorias}</Link>
+                        </MenuItem>
+                    ))}
                 </MenuList>
                 </Menu>
                 <Flex alignItems={'center'}>

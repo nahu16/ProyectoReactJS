@@ -67,7 +67,7 @@ export const ProductsData = [
         nombre: "Chactuchac",        
         id:9,
         año_publicacion: 1992,
-        category:"Los Piojos",
+        category:"LosPiojos",
         image:"src/assets/Discos/Chactuchac.webp",
         descripcion:"00:00 Llevátelo, Chactuchac, Tan sol,oCancheros, Los mocoso,sA veces"
         },
@@ -75,7 +75,7 @@ export const ProductsData = [
         nombre: "Ay Ay Ay",        
         id:10,
         año_publicacion: 1994,
-        category:"Los Piojos",
+        category:"LosPiojos",
         image:"src/assets/Discos/Ay Ay Ay.webp",
         descripcion:"Arco, Babilonia, Ay ay ay, Pistolas, Angelito, Manise"
         },    
@@ -83,7 +83,7 @@ export const ProductsData = [
         nombre: "3er Arcp",        
         id:11,
         año_publicacion: 1996,
-        category:"Los Piojos",
+        category:"LosPiojos",
         image:"src/assets/Discos/3er Arcp.webp",
         descripcion:"Esquina Libertad, Taxi Boy, El Farolito, Shup Shup, Al Atardecer, Que Decís"
         },
@@ -91,7 +91,7 @@ export const ProductsData = [
         nombre: "Azul",        
         id:12,
         año_publicacion: 1998,
-        category:"Los Piojos",
+        category:"LosPiojos",
         image:"src/assets/Discos/Azul.webp",
         descripcion:"Vals Inicial,El Balneario de los Doctores Crotos, Genius, A Ver Cuando, Desde Lejos No Se Ve, Sucio Can"
         },
@@ -99,7 +99,7 @@ export const ProductsData = [
         nombre: "Ritual",        
         id:13,
         año_publicacion: 1999,
-        category:"Los Piojos",
+        category:"LosPiojos",
         image:"src/assets/Discos/Ritual.webp",
         descripcion:"Olvidate (Ya Ves), Chac Tu Chac, Desde Lejos No Se Ve, Ay Ay Ay, Angelito, Agua"
         },
@@ -107,7 +107,7 @@ export const ProductsData = [
         nombre: "Verde paisaje del infierno",
         id:14,
         año_publicacion: 2000,
-        category:"Los Piojos",
+        category:"LosPiojos",
         image:"src/assets/Discos/Verde paisaje del infierno.jpg",
         descripcion:"María y José, Labios de Seda, Luz de Marfil, Vine Hasta Aquí, Globalización, Fijate"
         },
@@ -115,7 +115,7 @@ export const ProductsData = [
         nombre: "Huracanes en luna plateada",
         id:15,
         año_publicacion: 2002,
-        category:"Los Piojos",
+        category:"LosPiojos",
         image:"src/assets/Discos/Huracanes en luna plateada.jpg",
         descripcion:"María y José, Babilonia, Ximenita, Taxi Boy, A Veces, Cancheros"
         },
@@ -123,7 +123,7 @@ export const ProductsData = [
         nombre: "Máquina de sangre",
         id:16,
         año_publicacion: 2003,
-        category:"Los Piojos",
+        category:"LosPiojos",
         image:"src/assets/Discos/Máquina_de_sangre.jpg",
         descripcion:"Fantasma, Guadalupe, Como Alí, Langostas, Sudestada, Motumbo"
         },
@@ -131,7 +131,7 @@ export const ProductsData = [
         nombre: "Civilización",
         id:17,
         año_publicacion: 2007,
-        category:"Los Piojos",
+        category:"LosPiojos",
         image:"src/assets/Discos/Civilización.jfif", 
         descripcion:"Manjar, Pacífico, Civilización, Bicho de Ciudad, Pollo Viejo, Cruces y Flores"
         },

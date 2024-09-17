@@ -18,20 +18,20 @@ import { Link } from "react-router-dom";
 export const ItemListContainer = ({ products }) => {
   return <Box display={"flex"} flexWrap={"wrap"} marginLeft={55} marginBottom={10}>
   {
-      products.map((products) =>  (
-        <Card key={products.id} maxW="sm" marginTop={"1rem"} marginLeft={"2rem"}>
+      products.map((product) =>  (
+        <Card key={product.id} maxW="sm" marginTop={"1rem"} marginLeft={"2rem"}>
           <CardBody>
             <Image
-              src={products.image}
-              alt={products.nombre}
+              src={product.image}
+              alt={product.nombre}
               borderRadius="lg"
               height={350}
               width={400}
             />
             <Stack mt="6" spacing="3">
-              <Heading size="md">{products.nombre}</Heading>
-              <Text fontSize={12} fontStyle="italic">Artista: {products.category}</Text>
-              <Text fontSize={12} fontStyle="italic"> Año de lanzamiento: {products.año_publicacion}</Text>
+              <Heading size="md">{product.nombre}</Heading>
+              <Text fontSize={12} fontStyle="italic">Artista: {product.category}</Text>
+              <Text fontSize={12} fontStyle="italic"> Año de lanzamiento: {product.año_publicacion}</Text>
             </Stack>
           </CardBody>
           <Divider />
@@ -46,7 +46,7 @@ export const ItemListContainer = ({ products }) => {
               <Button variant="ghost" colorScheme="blue">
                 Add to cart
               </Button> */}
-              <Link to={`/item/${products.id}`}>Detalle del producto</Link>
+              <Link to={`/Item/${product.id}`}>Detalle del producto</Link>
             </ButtonGroup>
           </CardFooter>
         </Card>
