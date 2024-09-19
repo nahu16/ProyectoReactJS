@@ -2,14 +2,15 @@ import React from 'react'
 import { useParams } from 'react-router'
 import { useProductByid } from '../hooks';
 import { ItemDetailContainer } from '../components/ItemDetailContainer/ItemDetailContainer';
+import { ProductsData } from '../servicios/product';
 
 
 export const Item = () => {
-    const { id } = useParams(); 
+    const { detalleid } = useParams(); 
 
-    const {products}=useProductByid(id);
+    const detalleProducto = ProductsData.filter(product => product.descripcion===detalleid)
 
     return (
-    <ItemDetailContainer/>
+    <ItemDetailContainer productos={detalleProducto}/>
     )
 }
