@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router'
 import { useProductByid } from '../hooks';
 import { ItemDetailContainer } from '../components/ItemDetailContainer/ItemDetailContainer';
-import { ProductsData } from '../servicios/product';
+import { useEffect } from 'react';
 
+    export const Item = () => {
+        const {id}=useParams();
+        const [productDetail, setproductDetail] = useState();
+        
+        useEffect(()=>{
+        if (id){
+            const detalleProducto = useProductByid(id);
+            setproductDetail(detalleProducto);}
+        }, [id]);
 
-export const Item = () => {
-    const { detalleid } = useParams(); 
-
-    const detalleProducto = ProductsData.filter(product => product.descripcion===detalleid)
-
-    return (
-    <ItemDetailContainer productos={detalleProducto}/>
-    )
-}
+        return <ItemDetailContainer producto={productDetail}/>
+    };
