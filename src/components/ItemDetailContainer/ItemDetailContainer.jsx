@@ -22,7 +22,8 @@ import {
 } from "@chakra-ui/react";
 
 
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { CartContext } from "../../context";
 
 export const ItemDetailContainer = ({producto}) => {
 
@@ -32,17 +33,22 @@ export const ItemDetailContainer = ({producto}) => {
   const [showCount, setShowCount] = useState(false);
   const [count, setCount] = useState(0);
 
+  const {addItem,remuveItem} = useContext(CartContext);
+
+
   const handleShowCount = () => {
     setShowCount(!showCount);
   };
 
   const handleIncrement = () => {
+    addItem(producto, count+1);
     setCount(count + 1);
   };
 
   const handleDecrement = () => {
     if (count > 0) {
       setCount(count - 1);
+      remuveItem(producto);
     }
   };
 
@@ -82,7 +88,6 @@ export const ItemDetailContainer = ({producto}) => {
               $450
             </Text>
           </Box>
- 
           <Stack
             spacing={{ base: 4, sm: 6 }}
             direction={"column"}
@@ -102,7 +107,6 @@ export const ItemDetailContainer = ({producto}) => {
               </Text>
             </VStack>
           </Stack>
- 
           <Button
             rounded={"none"}
             w={"full"}
