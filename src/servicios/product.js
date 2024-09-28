@@ -3,6 +3,7 @@ export const ProductsData = [
         nombre: "Deskarado",
         id:1,
         año_publicacion: 1998,
+        price: 400,
         category:"La vela puerca",
         image:"../src/assets/Discos/Deskarado.jpg",
         descripcion:"ALta Magia, El Bandido Salto De Mata, Comun Cangrejo, Madre Resistencia, Paren Hoy, Vuelan Palos"
@@ -10,6 +11,7 @@ export const ProductsData = [
         {
         nombre: "De Bichos y Flores",
         id:2,
+        price: 550,
         año_publicacion: 2001        ,
         category:"La vela puerca",
         image:"../src/assets/Discos/De bichos y flores.webp",
@@ -18,6 +20,7 @@ export const ProductsData = [
         {
         nombre: "A Contraluz",
         id:3,
+        price: 460,
         año_publicacion: 2004,
         category:"La vela puerca",
         image:"../src/assets/Discos/A Contraluz.webp",
@@ -26,6 +29,7 @@ export const ProductsData = [
         {
         nombre: "El Impulso",        
         id:4,
+        price: 400,
         año_publicacion: 2007,
         category:"La vela puerca",
         image:"../src/assets/Discos/El Impulso.jpg",
@@ -34,6 +38,7 @@ export const ProductsData = [
         {
         nombre: "Piel y Hueso",        
         id:5,
+        price: 500,
         año_publicacion: 2011,
         category:"La vela puerca",
         image:"../src/assets/Discos/Piel y hueso.jpg",
@@ -41,7 +46,8 @@ export const ProductsData = [
         },
         {
         nombre: "Érase...",
-        id:6,        
+        id:6,   
+        price: 650,     
         año_publicacion: 2014,
         category:"La vela puerca",
         image:"../src/assets/Discos/Erase.jpg",
@@ -50,6 +56,7 @@ export const ProductsData = [
         {
         nombre: "Destilar",        
         id:7,
+        price: 560,
         año_publicacion: 2018,
         category:"La vela puerca",
         image:"../src/assets/Discos/Destilar.jpg",
@@ -58,6 +65,7 @@ export const ProductsData = [
         {
         nombre: "Discopático",        
         id:8,
+        price: 600,
         año_publicacion: 2022,
         category:"La vela puerca",
         image:"../src/assets/Discos/Discopatico.jpg", 
@@ -66,6 +74,7 @@ export const ProductsData = [
         {
         nombre: "Chactuchac",        
         id:9,
+        price: 430,
         año_publicacion: 1992,
         category:"Los Piojos",
         image:"../src/assets/Discos/Chactuchac.webp",
@@ -74,6 +83,7 @@ export const ProductsData = [
         {
         nombre: "Ay Ay Ay",        
         id:10,
+        price: 400,
         año_publicacion: 1994,
         category:"Los Piojos",
         image:"../src/assets/Discos/Ay Ay Ay.webp",
@@ -82,6 +92,7 @@ export const ProductsData = [
         {
         nombre: "3er Arcp",        
         id:11,
+        price: 500,
         año_publicacion: 1996,
         category:"Los Piojos",
         image:"../src/assets/Discos/3er Arcp.webp",
@@ -90,6 +101,7 @@ export const ProductsData = [
         {
         nombre: "Azul",        
         id:12,
+        price: 520,
         año_publicacion: 1998,
         category:"Los Piojos",
         image:"../src/assets/Discos/Azul.webp",
@@ -98,6 +110,7 @@ export const ProductsData = [
         {
         nombre: "Ritual",        
         id:13,
+        price: 450,
         año_publicacion: 1999,
         category:"Los Piojos",
         image:"../src/assets/Discos/Ritual.webp",
@@ -106,6 +119,7 @@ export const ProductsData = [
         {
         nombre: "Verde paisaje del infierno",
         id:14,
+        price: 400,
         año_publicacion: 2000,
         category:"Los Piojos",
         image:"../src/assets/Discos/Verde paisaje del infierno.jpg",
@@ -114,6 +128,7 @@ export const ProductsData = [
         {
         nombre: "Huracanes en luna plateada",
         id:15,
+        price: 530,
         año_publicacion: 2002,
         category:"Los Piojos",
         image:"../src/assets/Discos/Huracanes en luna plateada.jpg",
@@ -122,6 +137,7 @@ export const ProductsData = [
         {
         nombre: "Máquina de sangre",
         id:16,
+        price: 490,
         año_publicacion: 2003,
         category:"Los Piojos",
         image:"../src/assets/Discos/Máquina_de_sangre.jpg",
@@ -130,6 +146,7 @@ export const ProductsData = [
         {
         nombre: "Civilización",
         id:17,
+        price: 490,
         año_publicacion: 2007,
         category:"Los Piojos",
         image:"../src/assets/Discos/Civilización.jfif", 
@@ -138,6 +155,7 @@ export const ProductsData = [
         {
         nombre: "Solo de noche",
         id:18,
+        price: 400,
         año_publicacion: 1999,
         category:"No te va gustar",
         image:"../src/assets/Discos/Solo de noche.jfif",
@@ -146,6 +164,7 @@ export const ProductsData = [
         {
         nombre: "Este fuerte viento que sopla",        
         id:19,
+        price: 510,
         año_publicacion: 2002,
         category:"No te va gustar",
         image:"../src/assets/Discos/Este fuerte viento que sopla.jfif",
@@ -154,6 +173,7 @@ export const ProductsData = [
         {
         nombre: "Aunque cueste ver el sol",
         id:20,
+        price: 500,
         año_publicacion: 2004,
         category:"No te va gustar",
         image:"../src/assets/Discos/Aunque cueste ver el sol.jfif",
@@ -162,6 +182,7 @@ export const ProductsData = [
         {
         nombre: "Todo es tan inflamable",
         id:21,
+        price: 650,
         año_publicacion: 2006,
         category:"No te va gustar",
         image:"../src/assets/Discos/Todo es tan inflamable.jfif",
@@ -170,6 +191,7 @@ export const ProductsData = [
         {
         nombre: "El camino más largo",
         id:22,
+        price: 420,
         año_publicacion: 2008,
         category:"No te va gustar",
         image:"../src/assets/Discos/El camino más largo.jfif",
@@ -178,6 +200,7 @@ export const ProductsData = [
         {
         nombre: "Solo de día",        
         id:23,
+        price: 580,
         año_publicacion: 2008,
         category:"No te va gustar",
         image:"../src/assets/Discos/Solo de día.jfif",
@@ -186,6 +209,7 @@ export const ProductsData = [
         {
         nombre: "Por lo menos hoy",
         id:24,
+        price: 510,
         año_publicacion: 2010,
         category:"No te va gustar",
         image:"../src/assets/Discos/Por lo menos hoy.jfif",
@@ -194,6 +218,7 @@ export const ProductsData = [
         {
         nombre: "El calor de pleno invierno",
         id:25,
+        price: 590,
         año_publicacion: 2012,
         category:"No te va gustar",
         image:"../src/assets/Discos/El calor de pleno invierno.jfif",
@@ -202,6 +227,7 @@ export const ProductsData = [
         {
         nombre: "El tiempo otra vez avanza",
         id:26,
+        price: 500,
         año_publicacion: 2014,
         category:"No te va gustar",
         image:"../src/assets/Discos/El tiempo otra vez avanza.jfif",
@@ -210,6 +236,7 @@ export const ProductsData = [
         {
         nombre: "Suenan las alarmas",
         id:27,
+        price: 400,
         año_publicacion: 2017,
         category:"No te va gustar",
         image:"../src/assets/Discos/Suenan las alarmas.jpg",
@@ -218,6 +245,7 @@ export const ProductsData = [
         {
         nombre: "Luz",
         id:28,
+        price: 600,
         año_publicacion: 2021,
         category:"No te va gustar",
         image:"../src/assets/Discos/Luz.jpg",

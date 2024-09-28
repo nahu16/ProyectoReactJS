@@ -38,5 +38,10 @@ export const CartProvider = ({children}) =>{
         }
     };
 
-    return <CartContext.Provider value={{cartState,addItem, remuveItem}}>{children}</CartContext.Provider>
+    const deleteItem = (product) => {
+        setCartState(cartState.filter((item) => item.id !== product.id));
+      };
+
+
+    return <CartContext.Provider value={{cartState,addItem, remuveItem,deleteItem}}>{children}</CartContext.Provider>
 };

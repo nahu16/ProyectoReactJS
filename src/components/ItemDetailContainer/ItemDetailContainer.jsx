@@ -85,7 +85,7 @@ export const ItemDetailContainer = ({producto}) => {
               fontWeight={300}
               fontSize={"2xl"}
             >
-              $450
+              ${producto.price}
             </Text>
           </Box>
           <Stack

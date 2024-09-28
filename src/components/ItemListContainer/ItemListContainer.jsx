@@ -17,8 +17,8 @@ import { Link } from "react-router-dom";
 
 
 export const ItemListContainer = ({ products }) => {
-
-  return <Box display={"flex"} flexWrap={"wrap"} marginLeft={55} marginBottom={10}>
+  return<Box display={"flex"} flexWrap={"wrap"} marginTop={50} marginLeft={55} marginBottom={10}>
+      
   {
       products.map((product) =>  (
         <Card key={product.id} maxW="sm" marginTop={"1rem"} marginLeft={"2rem"}>
@@ -39,7 +39,7 @@ export const ItemListContainer = ({ products }) => {
           <Divider />
           <CardFooter>
           <Text color="blue.600" fontSize="2xl" marginRight={100}>
-                $450
+                ${product.price}
               </Text>
             <ButtonGroup spacing="2">
             {/*    <Button variant="solid" colorScheme="blue">
