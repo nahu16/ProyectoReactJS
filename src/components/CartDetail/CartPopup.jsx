@@ -15,22 +15,15 @@ import {
   AlertIcon,
   IconButton,
 } from "@chakra-ui/react";
-import { DeleteIcon, AddIcon, MinusIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
 
-export const CartDetails = () => {
-  const { cartState, addItem, remuveItem, deleteItem } =
+
+export const CartPopup = () => {
+  const { cartState, } =
     useContext(CartContext);
   const total = cartState.reduce(
     (acc, item) => acc + item.price * item.qtyItem,
     0
   );
-
-  
-
-  const handleDeleteItem = (item) => {
-    deleteItem(item);
-  };
 
   return (
     <Box p={6} maxW="800px" mx="auto">
@@ -69,20 +62,6 @@ export const CartDetails = () => {
                 <HStack spacing={4} mt={2}>
                   <Text>Precio: ${item.price.toFixed(2)}</Text>
                   <HStack>
-                    <IconButton
-                      aria-label="Disminuir cantidad"
-                      icon={<MinusIcon />}
-                      size="sm"
-                      onClick={() => remuveItem(item)}
-                      isDisabled={item.qtyItem === 1}
-                    />
-                    <Text>{item.qtyItem}</Text>
-                    <IconButton
-                      aria-label="Aumentar cantidad"
-                      icon={<AddIcon />}
-                      size="sm"
-                      onClick={() => addItem(item)}
-                    />
                   </HStack>
                 </HStack>
               </Box>
@@ -91,13 +70,6 @@ export const CartDetails = () => {
                 <Text fontWeight="bold">
                   Subtotal: ${(item.price * item.qtyItem).toFixed(2)}
                 </Text>
-                <IconButton
-                  aria-label="Eliminar producto"
-                  icon={<DeleteIcon />}
-                  colorScheme="red"
-                  variant="outline"
-                  onClick={() => handleDeleteItem(item)}
-                />
               </HStack>
             </Flex>
           ))}
@@ -107,9 +79,6 @@ export const CartDetails = () => {
               Total: ${total.toFixed(2)}
             </Text>
             <Spacer />
-            <Link>
-              Continuar al pago
-            </Link>
           </Flex>
         </VStack>
       )}

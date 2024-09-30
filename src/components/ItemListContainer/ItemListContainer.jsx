@@ -42,12 +42,6 @@ export const ItemListContainer = ({ products }) => {
                 ${product.price}
               </Text>
             <ButtonGroup spacing="2">
-            {/*    <Button variant="solid" colorScheme="blue">
-                Buy now
-              </Button>
-              <Button variant="ghost" colorScheme="blue">
-                Add to cart
-              </Button> */}
               <Link to={`/Item/${product.id}`}>Detalle del producto</Link>
             </ButtonGroup>
           </CardFooter>
