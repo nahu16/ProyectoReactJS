@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext , useState} from "react";
 import { CartContext } from "../../context";
 import {
   Box,
@@ -14,6 +14,11 @@ import {
   Alert,
   AlertIcon,
   IconButton,
+  Input, 
+  Stack,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement ,
 } from "@chakra-ui/react";
 import { DeleteIcon, AddIcon, MinusIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
@@ -26,13 +31,69 @@ export const CartDetails = () => {
     0
   );
 
-  
-
   const handleDeleteItem = (item) => {
     deleteItem(item);
   };
 
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [comments, setComments] = useState("");
+
+  const handleSubmit = () => {
+    const orderDetails = { name, phone, address, comments, total };
+    localStorage.setItem("orderDetails", JSON.stringify(orderDetails));
+    alert("Información guardada para envío");
+  };
+
   return (
+    <Box>
+      <Box margin={30}>
+        <Heading as="h2" size="lg" mb={6} textAlign="center">
+          Detalles de la compra
+        </Heading>
+        <Stack spacing={4}>
+          <InputGroup>
+            <InputLeftElement pointerEvents="none"></InputLeftElement>
+            <Input
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </InputGroup>
+          <InputGroup>
+            <InputLeftElement pointerEvents="none"></InputLeftElement>
+            <Input
+              type="tel"
+              placeholder="Phone number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </InputGroup>
+          <InputGroup>
+            <InputLeftElement pointerEvents="none" color="gray.300" fontSize="1.2em"></InputLeftElement>
+            <Input
+              placeholder="Address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
+            <InputRightElement></InputRightElement>
+          </InputGroup>
+          <InputGroup>
+            <InputLeftElement pointerEvents="none" color="gray.300" fontSize="1.2em"></InputLeftElement>
+            <Input
+              placeholder="Comments"
+              value={comments}
+              onChange={(e) => setComments(e.target.value)}
+            />
+            <InputRightElement></InputRightElement>
+          </InputGroup>
+        </Stack>
+        <Button marginTop={3} onClick={handleSubmit}>
+          Enviar
+        </Button>
+    </Box>
     <Box p={6} maxW="800px" mx="auto">
       <Heading as="h2" size="lg" mb={6} textAlign="center">
         Detalles del Carrito
@@ -113,6 +174,7 @@ export const CartDetails = () => {
           </Flex>
         </VStack>
       )}
+    </Box>
     </Box>
   );
 };
