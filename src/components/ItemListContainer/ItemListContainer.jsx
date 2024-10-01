@@ -12,12 +12,31 @@ import {
   Button,
   flexbox
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
 export const ItemListContainer = ({ products }) => {
-  return<Box display={"flex"} flexWrap={"wrap"} marginTop={50} marginLeft={55} marginBottom={10}>
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (category) => {
+    navigate(`/category/${category}`); // Cambia la ruta según tu configuración
+  };
+
+  return<Box>
+  <Box justifyContent={"space-around"} display={"flex"}>
+  <Button onClick={() => handleCategoryClick('La vela puerca')}borderRadius={100} height={55} width={55}
+    bgImage={"src/assets/Discos/Logo LVP.jpg"}
+    bgSize="cover"
+    bgPosition="center">
+  </Button>
+  <Button onClick={() => handleCategoryClick('Los Piojos')}borderRadius={100} height={55} width={55}
+    bgImage={"src/assets/Discos/Lospiojos.png"}  bgSize="cover"
+    bgPosition="center"></Button>
+  <Button onClick={() => handleCategoryClick('No te va gustar')}borderRadius={100} height={55} width={55}bgImage={"src/assets/Discos/NTVG.png"}  bgSize="cover"
+  bgPosition="center"></Button>
+</Box>
+  <Box display={"flex"} flexWrap={"wrap"} marginTop={50} marginLeft={200} marginBottom={10}>
       
   {
       products.map((product) =>  (
@@ -48,5 +67,6 @@ export const ItemListContainer = ({ products }) => {
         </Card>
       ))
   };  
+  </Box>
   </Box>
 }; 
