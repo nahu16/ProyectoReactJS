@@ -1,4 +1,4 @@
-import { useContext , useState} from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../context";
 import {
   Box,
@@ -14,14 +14,15 @@ import {
   Alert,
   AlertIcon,
   IconButton,
-  Input, 
+  Input,
   Stack,
   InputGroup,
   InputLeftElement,
-  InputRightElement ,
+  InputRightElement,
 } from "@chakra-ui/react";
 import { DeleteIcon, AddIcon, MinusIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import { db } from "../../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 export const CartDetails = () => {
   const { cartState, addItem, remuveItem, deleteItem } =
@@ -41,9 +42,36 @@ export const CartDetails = () => {
   const [comments, setComments] = useState("");
 
   const handleSubmit = () => {
-    const orderDetails = { name, phone, address, comments, total };
+    const orderDetails = { name, phone, address, comments };
     localStorage.setItem("orderDetails", JSON.stringify(orderDetails));
-    alert("Información guardada para envío");
+  };
+
+  const handleCreateOrder = () => {
+
+    const orderDetails = JSON.parse(localStorage.getItem("orderDetails")) || {};
+
+    const ordenFinal = {
+      envio: {
+        nombre: orderDetails.name,
+        telefono: orderDetails.phone,
+        direccion: orderDetails.address,
+        comentarios: orderDetails.comments
+      },
+      items: cartState.map((item) => {
+        return {
+          id: item.id,
+          nombre: item.nombre,
+          price: item.price,
+          quantity: item.qtyItem
+        };
+      }),
+      total: total,
+    }
+    const ordersCollection = collection(db, "orders");
+    addDoc(ordersCollection, ordenFinal).then(({ id }) => {
+      alert("Se creo la orden con id:" + id);
+      console.log(orderDetails);
+    })
   };
 
   return (
@@ -93,88 +121,90 @@ export const CartDetails = () => {
         <Button marginTop={3} onClick={handleSubmit}>
           Enviar
         </Button>
-    </Box>
-    <Box p={6} maxW="800px" mx="auto">
-      <Heading as="h2" size="lg" mb={6} textAlign="center">
-        Detalles del Carrito
-      </Heading>
+      </Box>
+      <Box p={6} maxW="800px" mx="auto">
+        <Heading as="h2" size="lg" mb={6} textAlign="center">
+          Detalles del Carrito
+        </Heading>
 
-      {cartState.length === 0 ? (
-        <Alert status="info" borderRadius="md">
-          <AlertIcon />
-          Tu carrito está vacío.
-        </Alert>
-      ) : (
-        <VStack spacing={4} align="stretch">
-          {cartState.map((item) => (
-            <Flex
-              key={item.id}
-              p={4}
-              borderWidth="1px"
-              borderRadius="md"
-              alignItems="center"
-              boxShadow="sm"
-            >
-              <Image
-                src={item.image}
-                alt={item.nombre}
-                boxSize="100px"
-                objectFit="cover"
+        {cartState.length === 0 ? (
+          <Alert status="info" borderRadius="md">
+            <AlertIcon />
+            Tu carrito está vacío.
+          </Alert>
+        ) : (
+          <VStack spacing={4} align="stretch">
+            {cartState.map((item) => (
+              <Flex
+                key={item.id}
+                p={4}
+                borderWidth="1px"
                 borderRadius="md"
-                mr={4}
-              />
-              <Box flex="1">
-                <Text fontSize="xl" fontWeight="bold">
-                  {item.nombre}
-                </Text>
-                <HStack spacing={4} mt={2}>
-                  <Text>Precio: ${item.price.toFixed(2)}</Text>
-                  <HStack>
-                    <IconButton
-                      aria-label="Disminuir cantidad"
-                      icon={<MinusIcon />}
-                      size="sm"
-                      onClick={() => remuveItem(item)}
-                      isDisabled={item.qtyItem === 1}
-                    />
-                    <Text>{item.qtyItem}</Text>
-                    <IconButton
-                      aria-label="Aumentar cantidad"
-                      icon={<AddIcon />}
-                      size="sm"
-                      onClick={() => addItem(item)}
-                    />
-                  </HStack>
-                </HStack>
-              </Box>
-              <Spacer />
-              <HStack>
-                <Text fontWeight="bold">
-                  Subtotal: ${(item.price * item.qtyItem).toFixed(2)}
-                </Text>
-                <IconButton
-                  aria-label="Eliminar producto"
-                  icon={<DeleteIcon />}
-                  colorScheme="red"
-                  variant="outline"
-                  onClick={() => handleDeleteItem(item)}
+                alignItems="center"
+                boxShadow="sm"
+              >
+                <Image
+                  src={item.image}
+                  alt={item.nombre}
+                  boxSize="100px"
+                  objectFit="cover"
+                  borderRadius="md"
+                  mr={4}
                 />
-              </HStack>
+                <Box flex="1">
+                  <Text fontSize="xl" fontWeight="bold">
+                    {item.nombre}
+                  </Text>
+                  <HStack spacing={4} mt={2}>
+                    <Text>Precio: ${item.price.toFixed(2)}</Text>
+                    <HStack>
+                      <IconButton
+                        aria-label="Disminuir cantidad"
+                        icon={<MinusIcon />}
+                        size="sm"
+                        onClick={() => remuveItem(item)}
+                        isDisabled={item.qtyItem === 1}
+                      />
+                      <Text>{item.qtyItem}</Text>
+                      <IconButton
+                        aria-label="Aumentar cantidad"
+                        icon={<AddIcon />}
+                        size="sm"
+                        onClick={() => addItem(item)}
+                      />
+                    </HStack>
+                  </HStack>
+                </Box>
+                <Spacer />
+                <HStack>
+                  <Text fontWeight="bold">
+                    Subtotal: ${(item.price * item.qtyItem).toFixed(2)}
+                  </Text>
+                  <IconButton
+                    aria-label="Eliminar producto"
+                    icon={<DeleteIcon />}
+                    colorScheme="red"
+                    variant="outline"
+                    onClick={() => handleDeleteItem(item)}
+                  />
+                </HStack>
+              </Flex>
+            ))}
+            <Divider />
+            <Flex alignItems="center">
+              <Text fontSize="2xl" fontWeight="bold">
+                Total: ${total.toFixed(2)}
+              </Text>
+              <Spacer />
+              <Button onClick={handleCreateOrder}>
+                Agregar orden
+              </Button>
             </Flex>
-          ))}
-          <Divider />
-          <Flex alignItems="center">
-            <Text fontSize="2xl" fontWeight="bold">
-              Total: ${total.toFixed(2)}
-            </Text>
-            <Spacer />
-            <Link>
-              Continuar al pago
-            </Link>
-          </Flex>
-        </VStack>
-      )}
-    </Box>
+          </VStack>
+        )}
+      </Box>
     </Box>
   );
+
+
 };
